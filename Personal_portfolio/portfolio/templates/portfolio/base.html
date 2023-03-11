@@ -3,7 +3,6 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -46,6 +45,13 @@
           </li>
           <li>
             <a role="button" href="{% url 'blog:all_blogs' %}" class="btn btn-primary">Blog</a>
+          </li>
+           <li>
+            {% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}! (<a href="{% url 'logout' %}">Logout</a>)</p>
+          {% else %}
+    <p><a href="{% url 'login' %}">Login</a></p>
+            {% endif %}
           </li>
         </ul>
       </div>
